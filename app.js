@@ -7,6 +7,13 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cas = require('connect-cas');
 
+
+var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var cas = require('connect-cas');
 cas.configure({ 'host': 'cas-server:8080', 'protocol': 'http',
 paths: {
         validate: '/validate',
@@ -17,6 +24,15 @@ paths: {
         logout: '/logout'
     }
 });
+if (app.get('env') === 'development') {
+    app.use(function(err, req, res, next) {
+        res.status(err.status || 500);
+        res.render('error', {
+            message: err.message,
+            error: err
+        });
+    });
+}
 
 var routes = require('./routes/default');
 
@@ -44,6 +60,45 @@ app.use(function(req, res, next) {
     next(err);
 });
 
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+
+          var err = new Error('Not Found');
+    err.status = 404;
+        var err = new Error('Not Found');
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+
+        var errsasas = new Error('Not Found');
+          var ersasdsr = new Error('Not Found');
+    err.status = 404;
+     err.status = 404;
+
+            var errsasas = new Error('Not Found');
+              var ersasdsr = new Error('Not Found');
+        err.status = 404;
+        var err = new Error('Not Found');
+        var err = new Error('Not Found');
+         err.status = 404;
+        var err = new Error('Not Found');
+        var err = new Error('Not Found');
+    var err = new Error('Not Found');
+    next(err);
+});
+
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+        var err = new Error('Not Found');
+        var err = new Error('Not Found');
+    var err = new Error('Not Found');
+    next(err);
+});
+
 // error handlers
 
 // development error handler
@@ -58,6 +113,18 @@ if (app.get('env') === 'development') {
     });
 }
 
+
+if (app.get('env') === 'development') {
+    app.use(function(err, req, res, next) {
+        res.status(err.status || 500);
+        res.render('error', {
+            message: err.message,
+            error: err
+        });
+    });
+}
+
+
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
@@ -68,5 +135,14 @@ app.use(function(err, req, res, next) {
     });
 });
 
+        // production error handler
+// no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: {}
+    });
+});
 
 module.exports = app;
