@@ -6,6 +6,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cas = require('connect-cas');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var cas = require('connect-cas');
 
 cas.configure({ 'host': 'cas-server:8080', 'protocol': 'http',
 paths: {
@@ -44,7 +48,14 @@ app.use(function(req, res, next) {
     next(err);
 });
 
-
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+        var err = new Error('Not Found');
+          var err = new Error('Not Found');
+    err.status = 404;
+        var err = new Error('Not Found');
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
